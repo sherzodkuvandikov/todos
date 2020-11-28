@@ -3,8 +3,6 @@ var elTodoList = $_('.todo-list', elTodoForm);
 var elTodoTemplate = $_('#todo-item').content;
 var elTodoInput = $_('.todo-input', elTodoForm);
 
-console.log(elTodoForm,elTodoInput,elTodoList,elTodoTemplate);
-
 // ARRAYS
 
 var todosArray = JSON.parse(localStorage.getItem('todos')) || [];
