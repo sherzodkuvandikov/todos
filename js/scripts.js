@@ -1,10 +1,11 @@
 var elTodoForm = $_('.todos-form');
-var elTodoList = $_('.todo-list', elTodoForm);
-var elTodoTemplate = $_('#todo-item').content;
 var elTodoInput = $_('.todo-input', elTodoForm);
-var elClearBtn = $_('.clear-btn');
+var elTodoList = $_('.todo-list', elTodoForm);
 
-var todoCheckbox = $_('.todo-checkbox');
+var elTodoTemplate = $_('#todo-item').content;
+var todoCheckbox = $_('.todo-checkbox', elTodoTemplate);
+
+var elClearBtn = $_('.clear-btn');
 var elShowAllBtn = $_('.show-all');
 var elShowActiveBtn = $_('.show-active');
 var elShovCompletedBtn = $_('.show-completed');
@@ -20,16 +21,13 @@ var createNewTodo = function () {
   todosArray.forEach(function(todo){
     var newTodo = elTodoTemplate.cloneNode(true);
 
-    $_('.todo-text', newTodo).textContent = todo;
-
+    $_('.todo-text', newTodo).textContent = todo.title;
     newTodoFragment.appendChild(newTodo);
-    return newTodo;
   });
 
   elTodoList.appendChild(newTodoFragment);
 }
 createNewTodo();
-
 
 elTodoForm.addEventListener('submit', evt => {
   evt.preventDefault();
@@ -37,9 +35,18 @@ elTodoForm.addEventListener('submit', evt => {
 
   var enteredValue = elTodoInput.value.trim();
 
-  if (!todosArray.includes(enteredValue)) {
-    // todosArray.push(enteredValue);
-    todosArray.push(enteredValue)
+  var searchWord = new RegExp(enteredValue, "gi")
+  var isExist;
+  todosArray.forEach(function(todo) {
+    isExist = todo.title.match(searchWord);
+  })
+
+  var i = todosArray.length;
+  if (!isExist) {
+    todosArray.push({
+      title: enteredValue,
+      id: i+1,
+    })
     localStorage.setItem('todos', JSON.stringify(todosArray));
   }
 
