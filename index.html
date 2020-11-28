@@ -15,14 +15,13 @@
   </header>
 
   <main class="main-todos w-50 mr-auto ml-auto mb-0">
-    <form action="#" method="GET">
+    <form class="todos-form" action="#" method="GET">
       <div class="form-group mb-0 ">
-        <input class="form-control shadow-sm" placeholder="what needs to be done?" type="text">
+        <input class="todo-input form-control shadow-sm" placeholder="what needs to be done?" type="text">
       </div>
-      <ul class="todos-list list-group">
-        <li class="list-group-item">Birnnas</li>
+      <ul class="todo-list list-group">
       </ul>
-    </form>
+    </for>
   </main>
 
   <footer>
@@ -30,7 +29,14 @@
   </footer>
 
   <!-- TEMPLATES -->
-
+  <template id="todo-item">
+    <li class="todo-item list-group-item">
+      <label class="">
+        <input class="custom-checkbox" type="checkbox">
+      </label>
+      <span class="todo-text">Binnima</span>
+    </li>
+  </template>
 
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
