@@ -9,8 +9,6 @@ var elShowAllBtn = $_('.show-all');
 var elShowActiveBtn = $_('.show-active');
 var elShovCompletedBtn = $_('.show-completed');
 
-console.log(todoCheckbox,elShowAllBtn,elShowActiveBtn,elShovCompletedBtn);
-
 // ARRAYS
 
 var todosArray = JSON.parse(localStorage.getItem('todos')) || [];
@@ -32,14 +30,16 @@ var createNewTodo = function () {
 }
 createNewTodo();
 
+
 elTodoForm.addEventListener('submit', evt => {
   evt.preventDefault();
   elTodoList.innerHTML = '';
 
-
   var enteredValue = elTodoInput.value.trim();
+
   if (!todosArray.includes(enteredValue)) {
-    todosArray.push(enteredValue);
+    // todosArray.push(enteredValue);
+    todosArray.push(enteredValue)
     localStorage.setItem('todos', JSON.stringify(todosArray));
   }
 
@@ -48,8 +48,8 @@ elTodoForm.addEventListener('submit', evt => {
 
 });
 
-  elClearBtn.addEventListener('click', function(evt){
-    elTodoList.innerHTML = '';
-       = [];
-    localStorage.clear();
-  });
+elClearBtn.addEventListener('click', function(evt){
+  elTodoList.innerHTML = '';
+  todosArray = [];
+  localStorage.clear();
+});
