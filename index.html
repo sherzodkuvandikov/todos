@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-light">
+<body class="bg-light vh-100">
 
   <header>
     <h1 class="h1 text-center text-success">todos</h1>
@@ -16,23 +16,27 @@
 
   <main class="main-todos w-50 mr-auto ml-auto mb-0">
     <form class="todos-form" action="#" method="GET">
-      <div class="form-group mb-0 ">
+      <div class="form-group mb-0 d-flex">
         <input class="todo-input form-control shadow-sm" placeholder="what needs to be done?" type="text">
       </div>
-      <ul class="todo-list list-group">
+
+      <ul class="todo-list h-50 list-group">
       </ul>
-    </for>
+    </form>
   </main>
 
-  <footer class="w-50 mr-auto ml-auto">
-    <button class="clear-btn btn btn-danger">clear all</button>
+  <footer class="w-50 mr-auto ml-auto d-flex flex-row p-3">
+    <button class="show-all btn btn-light ml-2 d-block text-nowrap" type="button">All</button>
+    <button class="show-active btn btn-light ml-2 d-block text-nowrap" type="button">Active</button>
+    <button class="show-completed btn btn-light ml-2 d-block text-nowrap" type="button">Completed</button>
+    <button class="clear-btn btn btn-light ml-2 d-block text-nowrap" type="button">clear all</button>
   </footer>
 
   <!-- TEMPLATES -->
   <template id="todo-item">
     <li class="todo-item list-group-item">
       <label class="">
-        <input class="item-chechbox custom-checkbox" type="checkbox">
+        <input class="todo-checkbox item-chechbox custom-checkbox" type="checkbox">
       </label>
       <span class="todo-text">Binnima</span>
     </li>
