@@ -2,7 +2,7 @@ var elTodoForm = $_('.todos-form');
 var elTodoList = $_('.todo-list', elTodoForm);
 var elTodoTemplate = $_('#todo-item').content;
 var elTodoInput = $_('.todo-input', elTodoForm);
-
+var elClearBtn = $_('.clear-btn');
 // ARRAYS
 
 var todosArray = JSON.parse(localStorage.getItem('todos')) || [];
@@ -35,4 +35,8 @@ createNewTodo();
       localStorage.setItem('todos', JSON.stringify(todosArray));
     }
 
+  });
+
+  elClearBtn.addEventListener('click', function(evt){
+    localStorage.clear();
   });
