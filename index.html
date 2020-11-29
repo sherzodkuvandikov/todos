@@ -34,11 +34,14 @@
 
   <!-- TEMPLATES -->
   <template id="todo-item">
-    <li class="todo-item list-group-item">
-      <label class="">
-        <input class="todo-checkbox item-chechbox custom-checkbox" type="checkbox">
-      </label>
-      <span class="todo-text">Binnima</span>
+    <li class="todo-item list-group-item d-flex align-items-center">
+      <div class="text-wrapper">
+        <label>
+          <input class="todo-checkbox item-chechbox custom-checkbox" type="checkbox">
+        </label>
+        <span class="todo-text">Binnima</span>
+      </div>
+      <button class="btn ml-auto">X</button>
     </li>
   </template>
 

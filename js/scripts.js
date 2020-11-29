@@ -22,6 +22,8 @@ var createNewTodo = function () {
     var newTodo = elTodoTemplate.cloneNode(true);
 
     $_('.todo-text', newTodo).textContent = todo.title;
+    $_('.todo-checkbox', newTodo).dataset.id = todo.id;
+    $_('.todo-text', newTodo).dataset.id = todo.id;
     newTodoFragment.appendChild(newTodo);
   });
 
@@ -29,9 +31,13 @@ var createNewTodo = function () {
 }
 createNewTodo();
 
+todoCheckbox.checked
+
+
+
 elTodoForm.addEventListener('submit', evt => {
   evt.preventDefault();
-  elTodoList.innerHTML = '';
+  elTodoList.innerHTML = '';  
 
   var enteredValue = elTodoInput.value.trim();
 
@@ -46,13 +52,15 @@ elTodoForm.addEventListener('submit', evt => {
     todosArray.push({
       title: enteredValue,
       id: i+1,
+      isUrgent: false,
+      complated: false
     })
     localStorage.setItem('todos', JSON.stringify(todosArray));
   }
+  console.log(todosArray);
 
   createNewTodo();
   elTodoInput.value = '';
-
 });
 
 elClearBtn.addEventListener('click', function(evt){
@@ -60,3 +68,7 @@ elClearBtn.addEventListener('click', function(evt){
   todosArray = [];
   localStorage.clear();
 });
+
+elShowAllBtn.addEventListener("click", function(evt) {
+
+})
